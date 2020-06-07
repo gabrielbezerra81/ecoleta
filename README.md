@@ -14,13 +14,14 @@ O Ecoleta é uma aplicação que faz a conexão entre usuários e empresas ou en
 
 O Ecoleta está dividido em 3 aplicações: web, mobile e back-end. Através da aplicação web, as empresas ou entidades fazem o registros dos pontos de coleta. Na aplicação mobile, os usuários buscam pontos de coletas nas suas cidades filtrando pelo itens de coletados. 
 
-## Getting Started
+## Como utilizar
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Veja as instruções para instalar as dependências de cada aplicação e executar testes locais.
 
-### Prerequisites
+### Pré-requisitos
 
-What things you need to install the software and how to install them
+* [Node.js - versão LTS](https://nodejs.org/en/download/)
+* [Expo](https://expo.io/learn)
 
 ```
 Give examples
