@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import knex from "../database/connection";
-import { myIP } from "../server";
+import { serverURL } from "../server";
 
 export default class ItemsController {
   async index(request: Request, response: Response) {
@@ -9,7 +9,7 @@ export default class ItemsController {
     const serializedItems = items.map((item) => ({
       id: item.id,
       title: item.title,
-      image_url: `http://${myIP}:3333/uploads/${item.image}`,
+      image_url: `${serverURL}/uploads/${item.image}`,
     }));
 
     return response.json(serializedItems);
