@@ -12,11 +12,9 @@
   O Ecoleta é uma aplicação que faz a conexão entre usuários e empresas ou entidades que coletam resíduos orgânicos e inorgânicos, como pilhas, baterias e lâmpadas.
 </p>
 
-
 ## Como funciona?
 
-<p align="justify">
-O Ecoleta está dividido em 3 aplicações: web, mobile e back-end. Através da aplicação web, as empresas ou entidades fazem o registros dos pontos de coleta. Na aplicação mobile, os usuários buscam pontos de coletas nas suas cidades filtrando pelo itens de coletados.
+<p align="justify">O Ecoleta está dividido em 3 aplicações: web, mobile e back-end. Através da aplicação web, as empresas ou entidades fazem o registros dos pontos de coleta. Na aplicação mobile, os usuários buscam pontos de coletas nas suas cidades filtrando pelo itens de coletados.
 </p>
 
 
