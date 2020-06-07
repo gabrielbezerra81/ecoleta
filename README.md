@@ -33,11 +33,25 @@ cd server
 npm install
 ```
 
-Configurando banco de dados
+Configurando banco de dados:
 
 ```
 npm run knex:migrate
 npm run knex:seed
+```
+
+#### Web
+
+Instalando dependências:
+```
+cd web
+npm install
+```
+
+#### Mobile
+```
+cd mobile
+npm install
 ```
 
 ## Running the tests
