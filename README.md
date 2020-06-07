@@ -33,6 +33,12 @@ cd server
 npm install
 ```
 
+Altere o [serverURL](/server/src/server.ts) para o endereço local da sua máquina:
+```
+const portNumber = 3333;
+export const serverURL = `http://10.0.0.172:${portNumber}`;
+```
+
 Configurando banco de dados:
 ```
 npm run knex:migrate
