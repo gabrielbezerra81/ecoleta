@@ -17,6 +17,14 @@
 <p align="justify">O Ecoleta está dividido em 3 aplicações: web, mobile e back-end. Através da aplicação web, as empresas ou entidades fazem os registros dos pontos de coleta. Na aplicação mobile, os usuários buscam pontos de coletas nas suas cidades filtrando pelo itens de coletados.
 </p>
 
+## Layout utilizado
+[Ecoleta - Figma](https://www.figma.com/file/9TlOcj6l7D05fZhU12xWT3/Ecoleta-(Booster)?node-id=0%3A1)
+
+## Resultado final
+
+##### Web:
+
+##### Mobile:
 
 ## Tecnologias utilizadas
 
@@ -93,14 +101,3 @@ expo start
 * **POST**: `/points` - Cadastro de um ponto de coleta
 * **GET**: `/points` - Listagem dos pontos de coleta filtrados por UF, cidade e itens coletados
 * **GET**: `/points/id` - Mostrar um ponto de coleta específico
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
-
