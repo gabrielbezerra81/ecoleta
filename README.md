@@ -23,27 +23,22 @@ Veja as instruções para instalar as dependências de cada aplicação e execut
 * [Node.js - versão LTS](https://nodejs.org/en/download/)
 * [Expo](https://expo.io/learn)
 
+### Executando projetos
+
+#### Back-end
+
+Instalando dependências:
 ```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
+cd server
+npm install
 ```
 
-And repeat
+Configurando banco de dados
 
 ```
-until finished
+npm run knex:migrate
+npm run knex:seed
 ```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
