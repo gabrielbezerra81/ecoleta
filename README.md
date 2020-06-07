@@ -25,6 +25,9 @@
 ##### Web:
 
 ##### Mobile:
+<p align="centern">
+  <img   src="/projectScreenshots/mobileScreenshot.jpg">
+</p>
 
 ## Tecnologias utilizadas
 
