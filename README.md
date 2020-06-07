@@ -87,20 +87,12 @@ Iniciando app mobile:
 expo start
 ```
 
+## Endpoints:
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **GET**: `/items` - Listagem dos itens coletados
+* **POST**: `/points` - Cadastro de um ponto de coleta
+* **GET**: `/points` - Listagem dos pontos de coleta filtrados por UF, cidade e itens coletados
+* **GET**: `/points/id` - Mostrar um ponto de coleta específico
 
 ## License
 
