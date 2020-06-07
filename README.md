@@ -34,10 +34,14 @@ npm install
 ```
 
 Configurando banco de dados:
-
 ```
 npm run knex:migrate
 npm run knex:seed
+```
+
+Iniciando o servidor:
+```
+npm run dev
 ```
 
 #### Web
@@ -48,10 +52,22 @@ cd web
 npm install
 ```
 
+Iniciando aplicação web:
+```
+npm start
+```
+
 #### Mobile
+
+Instalando dependências:
 ```
 cd mobile
 npm install
+```
+
+Iniciando app mobile:
+```
+expo start
 ```
 
 ## Running the tests
