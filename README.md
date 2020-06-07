@@ -23,10 +23,15 @@
 ## Resultado final
 
 ##### Web:
+<div style="display:flex; justify-content:center">
+<p justify="center" align="center">
+  <img width="100%" src="/projectScreenshots/webScreenshot.png">
+</p>
+</div>
 
 ##### Mobile:
-<p align="centern">
-  <img   src="/projectScreenshots/mobileScreenshot.jpg">
+<p align="center">
+  <img src="/projectScreenshots/mobileScreenshot.jpg">
 </p>
 
 ## Tecnologias utilizadas
