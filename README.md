@@ -12,7 +12,14 @@ O Ecoleta é uma aplicação que faz a conexão entre usuários e empresas ou en
 
 ## Como funciona?
 
-O Ecoleta está dividido em 3 aplicações: web, mobile e back-end. Através da aplicação web, as empresas ou entidades fazem o registros dos pontos de coleta. Na aplicação mobile, os usuários buscam pontos de coletas nas suas cidades filtrando pelo itens de coletados. 
+O Ecoleta está dividido em 3 aplicações: web, mobile e back-end. Através da aplicação web, as empresas ou entidades fazem o registros dos pontos de coleta. Na aplicação mobile, os usuários buscam pontos de coletas nas suas cidades filtrando pelo itens de coletados.
+
+## Tecnologias utilizadas
+
+* [React JS](https://pt-br.reactjs.org/)
+* [React Native](https://reactnative.dev/)
+* [Node.js](https://nodejs.org/en/)
+* [Typescript](https://www.typescriptlang.org/)
 
 ## Como utilizar
 
@@ -36,7 +43,7 @@ npm install
 Altere o [serverURL](/server/src/server.ts) para o endereço local da sua máquina:
 ```
 const portNumber = 3333;
-export const serverURL = `http://10.0.0.172:${portNumber}`;
+export const serverURL = `http://SeuIPAqui:${portNumber}`;
 ```
 
 Configurando banco de dados:
@@ -75,37 +82,6 @@ Iniciando app mobile:
 ```
 expo start
 ```
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Tecnologias utilizadas
-
-* [React JS](https://pt-br.reactjs.org/)
-* [React Native](https://reactnative.dev/)
-* [Node.js](https://nodejs.org/en/)
-* [Typescript](https://www.typescriptlang.org/)
 
 ## Contributing
 
