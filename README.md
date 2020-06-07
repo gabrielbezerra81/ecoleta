@@ -37,7 +37,7 @@ Veja as instruções para instalar as dependências de cada aplicação e execut
 Instalando dependências:
 ```
 cd server
-npm install
+npm install ou yarn
 ```
 
 Altere o [serverURL](/server/src/server.ts) para o endereço local da sua máquina:
@@ -48,13 +48,13 @@ export const serverURL = `http://SeuIPAqui:${portNumber}`;
 
 Configurando banco de dados:
 ```
-npm run knex:migrate
-npm run knex:seed
+npm run knex:migrate ou yarn knex:migrate
+npm run knex:seed ou yarn knex:seed
 ```
 
 Iniciando o servidor:
 ```
-npm run dev
+npm run dev ou yarn dev
 ```
 
 #### Web
@@ -62,12 +62,12 @@ npm run dev
 Instalando dependências:
 ```
 cd web
-npm install
+npm install ou yarn
 ```
 
 Iniciando aplicação web:
 ```
-npm start
+npm start ou yarn start
 ```
 
 #### Mobile
@@ -75,13 +75,12 @@ npm start
 Instalando dependências:
 ```
 cd mobile
-npm install
+npm install ou yarn
 ```
 
 Iniciando app mobile:
-```
-expo start
-```
+```expo start``` ou ``yarn start``
+
 
 ## Contributing
 
