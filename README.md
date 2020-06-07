@@ -84,6 +84,13 @@ npm start
 
 #### Mobile
 
+Altere a [baseURL](/mobile/src/api/api.ts) da API para o endereço local da sua máquina:
+```
+const api = axios.create({
+  baseURL: "http://SeuIPAqui:3333",
+});
+```
+
 Instalando dependências:
 ```
 cd mobile
