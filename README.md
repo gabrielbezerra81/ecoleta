@@ -2,7 +2,15 @@
   <img src="/web/src/assets/logo.svg">
 </p>
 
+<p align="center">
+  <img src="/NLW.jpeg">
+</p>
+
 O Ecoleta é uma aplicação que faz a conexão entre usuários e empresas ou entidades que coletam resíduos orgânicos e inorgânicos, como pilhas, baterias e lâmpadas.
+
+## Commo funciona?
+
+O Ecoleta está dividido em 3 aplicações: web, mobile e back-end. Através da aplicação web, as empresas ou entidades fazem o registros dos pontos de coleta. Na aplicação mobile, os usuários buscam pontos de coletas nas suas cidades filtrando pelo itens de coletados. 
 
 ## Getting Started
 
@@ -58,11 +66,12 @@ Give an example
 
 Add additional notes about how to deploy this on a live system
 
-## Built With
+## Tecnologias utilizadas
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [React JS](https://pt-br.reactjs.org/)
+* [React Native](https://reactnative.dev/)
+* [Node.js](https://nodejs.org/en/)
+* [Typescript](https://www.typescriptlang.org/)
 
 ## Contributing
 
