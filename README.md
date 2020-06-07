@@ -79,7 +79,8 @@ npm install ou yarn
 ```
 
 Iniciando app mobile:
-```expo start``` ou ``yarn start``
+
+```expo start```  ou ```yarn start```
 
 
 ## Contributing
