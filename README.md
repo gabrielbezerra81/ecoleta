@@ -1,7 +1,9 @@
 <p align="center">
   <img src="/web/src/assets/logo.svg">
 </p>
-
+<p align="center">
+  Projeto ecológico desenvolvido na Next Level Week da Rocketseat
+</p>
 <p align="center">
   <img src="/NLW.jpeg">
 </p>
