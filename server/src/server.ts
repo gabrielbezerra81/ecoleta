@@ -5,8 +5,7 @@ import routes from "./routes";
 import { errors } from "celebrate";
 
 const portNumber = 3333;
-const serverIP = "10.0.0.172";
-export const serverURL = `http://${serverIP}:${portNumber}`;
+export const serverURL = `http://10.0.0.172:${portNumber}`;
 
 const app = express();
 

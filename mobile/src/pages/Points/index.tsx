@@ -87,13 +87,13 @@ const Points = () => {
         params: {
           city,
           uf,
-          items: selectedItems,
+          items: selectedItems.join(","),
         },
       })
       .then((response) => {
         setPoints(response.data);
       })
-      .catch();
+      .catch(() => {});
   }, [selectedItems]);
 
   function handleNavigateToDetail(id: number) {
