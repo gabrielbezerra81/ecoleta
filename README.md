@@ -1,4 +1,6 @@
-![](/web/src/assets/logo.svg)
+<p align="center">
+  <img src="/web/src/assets/logo.svg">
+</p>
 
 O Ecoleta é uma aplicação que faz a conexão entre usuários e empresas ou entidades que coletam resíduos orgânicos e inorgânicos, como pilhas, baterias e lâmpadas.
 
