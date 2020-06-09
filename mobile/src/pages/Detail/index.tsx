@@ -28,8 +28,9 @@ interface Data {
     whatsapp: string;
     email: string;
     image_url: string;
-    items: { title: string }[];
+    items?: { title: string }[];
   };
+  items?: { title: string }[];
 }
 
 const Detail = () => {
@@ -82,7 +83,11 @@ const Detail = () => {
 
         <Text style={styles.pointName}>{data.point.name}</Text>
         <Text style={styles.pointItems}>
-          {data.point.items.map((item) => item.title).join(", ")}
+          {/* if Mongo was used */}
+          {data.point.items &&
+            data.point.items.map((item) => item.title).join(", ")}
+          {/* if SQLite was used */}
+          {data.items && data.items.map((item) => item.title).join(", ")}
         </Text>
 
         <View style={styles.address}>
