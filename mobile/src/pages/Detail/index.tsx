@@ -28,8 +28,8 @@ interface Data {
     whatsapp: string;
     email: string;
     image_url: string;
+    items: { title: string }[];
   };
-  items: { title: string }[];
 }
 
 const Detail = () => {
@@ -46,7 +46,9 @@ const Detail = () => {
       .then((response) => {
         setData(response.data);
       })
-      .catch();
+      .catch((erro) => {
+        console.log("error ", erro);
+      });
   }, []);
 
   function handleComposeMail() {
@@ -80,7 +82,7 @@ const Detail = () => {
 
         <Text style={styles.pointName}>{data.point.name}</Text>
         <Text style={styles.pointItems}>
-          {data.items.map((item) => item.title).join(", ")}
+          {data.point.items.map((item) => item.title).join(", ")}
         </Text>
 
         <View style={styles.address}>

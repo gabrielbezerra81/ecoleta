@@ -1,4 +1,5 @@
 import { celebrate, Joi } from "celebrate";
+import { chosenDB, mongoDB } from "../server";
 
 const defaultConfig = { abortEarly: false };
 
@@ -33,12 +34,20 @@ export const pointsFilterValidation = () => {
   );
 };
 
+// Mongo validation: id => string.     SQLite validation: id => number
 export const pointGetValidation = () => {
+  const idValidation =
+    chosenDB === mongoDB
+      ? {
+          id: Joi.string().required(),
+        }
+      : {
+          id: Joi.number().required(),
+        };
+
   return celebrate(
     {
-      params: Joi.object().keys({
-        id: Joi.number().required(),
-      }),
+      params: Joi.object().keys(idValidation),
     },
     defaultConfig
   );

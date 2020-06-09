@@ -7,6 +7,12 @@ import { errors } from "celebrate";
 const portNumber = 3333;
 export const serverURL = `http://10.0.0.172:${portNumber}`;
 
+const sqlite = "sqlite";
+
+export const mongoDB = "mongoDB";
+
+export const chosenDB = sqlite;
+
 const app = express();
 
 app.use(cors());

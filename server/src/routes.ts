@@ -29,6 +29,7 @@ routes.post(
 
 routes.get("/points", pointsFilterValidation(), pointsController.index);
 
+//,pointGetValidation()
 routes.get("/points/:id", pointGetValidation(), pointsController.show);
 
 export default routes;
