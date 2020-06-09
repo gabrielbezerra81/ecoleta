@@ -9,6 +9,8 @@ import {
   ImageBackground,
   KeyboardAvoidingView,
   Platform,
+  Alert,
+  ActivityIndicator,
 } from "react-native";
 import { Roboto_400Regular, Roboto_500Medium } from "@expo-google-fonts/roboto";
 import { Ubuntu_700Bold, useFonts } from "@expo-google-fonts/ubuntu";
@@ -17,6 +19,7 @@ import { useNavigation } from "@react-navigation/native";
 import RNPickerSelect from "react-native-picker-select";
 import axios from "axios";
 import _ from "lodash";
+import * as Location from "expo-location";
 
 interface IBGEUF {
   nome: string;
@@ -27,12 +30,22 @@ interface IBGECity {
   nome: string;
 }
 
+interface CityUFRequest {
+  localidade: string;
+  uf: string;
+}
+
 const Home = () => {
   const [selectedUF, setSelectedUF] = useState<string>("");
   const [selectedCity, setSelectedCity] = useState<string>("");
 
   const [ufList, setUfList] = useState<IBGEUF[]>([]);
   const [cityList, setCityList] = useState<string[]>([]);
+  const [initialPosition, setInitialPosition] = useState<[number, number]>([
+    0,
+    0,
+  ]);
+  const [fetchingLocation, setFetchingLocation] = useState(true);
 
   const [fontsLoaded] = useFonts({
     Roboto_400Regular,
@@ -72,10 +85,56 @@ const Home = () => {
       .catch();
   }, [selectedUF]);
 
+  useEffect(() => {
+    async function loadPosition() {
+      const { status } = await Location.requestPermissionsAsync();
+
+      if (status !== "granted") {
+        Alert.alert(
+          "ooooops...",
+          "Precisamos de sua permissão para obter a localização"
+        );
+        return;
+      }
+
+      const locationCoords = await Location.getCurrentPositionAsync();
+
+      const { latitude, longitude } = locationCoords.coords;
+      setInitialPosition([latitude, longitude]);
+
+      const reverseGeocode = await Location.reverseGeocodeAsync({
+        latitude,
+        longitude,
+      });
+
+      const cep = reverseGeocode[0].postalCode.split("-").join("");
+
+      const location = await axios.get<CityUFRequest>(
+        `https://viacep.com.br/ws/${cep}/json/`
+      );
+      const { localidade, uf } = location.data;
+
+      setSelectedUF(uf);
+      setCityList([localidade]);
+      setSelectedCity(localidade);
+    }
+    loadPosition()
+      .catch((erro) => {
+        console.log(erro);
+      })
+      .finally(() => {
+        setFetchingLocation(false);
+      });
+  }, []);
+
   if (!fontsLoaded) return <AppLoading />;
 
   function handleNavigateToPoints() {
-    navigation.navigate("Points", { uf: selectedUF, city: selectedCity });
+    navigation.navigate("Points", {
+      uf: selectedUF,
+      city: selectedCity,
+      initialPosition,
+    });
   }
 
   return (
@@ -99,6 +158,13 @@ const Home = () => {
               eficiente.
             </Text>
           </View>
+          <View style={styles.fetchingLocationIndicator}>
+            <ActivityIndicator
+              size="large"
+              color="#34CB79"
+              animating={fetchingLocation}
+            />
+          </View>
         </View>
 
         <View style={styles.footer}>
@@ -112,6 +178,7 @@ const Home = () => {
               value={selectedUF}
               onValueChange={(value) => setSelectedUF(value)}
               items={ufList.map((uf) => ({ label: uf.nome, value: uf.sigla }))}
+              disabled={fetchingLocation}
             />
             <RNPickerSelect
               placeholder={{ label: "Escolha uma cidade" }}
@@ -125,6 +192,7 @@ const Home = () => {
                 label: city,
                 value: city,
               }))}
+              disabled={fetchingLocation}
             />
           </View>
           <RectButton style={styles.button} onPress={handleNavigateToPoints}>
@@ -150,6 +218,7 @@ const styles = StyleSheet.create({
   main: {
     flex: 1,
     justifyContent: "center",
+    position: "relative",
   },
 
   title: {
@@ -212,5 +281,10 @@ const styles = StyleSheet.create({
   inputAndroid: { color: "black" },
   inputIOS: {
     color: "black",
+  },
+  fetchingLocationIndicator: {
+    position: "absolute",
+    bottom: 0,
+    width: "100%",
   },
 });

@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
   ScrollView,
   Image,
-  Alert,
 } from "react-native";
 import Constants from "expo-constants";
 import { useNavigation, useRoute } from "@react-navigation/native";
@@ -14,7 +13,6 @@ import MapView, { Marker } from "react-native-maps";
 import { SvgUri } from "react-native-svg";
 import GoBackArrow from "../../UIComponents/GoBackArrow";
 import api from "../../api/api";
-import * as Location from "expo-location";
 import { FontAwesome5 as Icon } from "@expo/vector-icons";
 
 // id Mongo: string, id Sqlite: number
@@ -37,20 +35,18 @@ interface Point {
 interface Params {
   uf: string;
   city: string;
+  initialPosition: [number, number];
 }
 
 const Points = () => {
   const navigation = useNavigation();
 
   const routeParams = useRoute().params as Params;
-  const { city, uf } = routeParams;
+  const { city, uf, initialPosition } = routeParams;
 
   const [items, setItems] = useState<Item[]>([]);
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
-  const [initialPosition, setInitialPosition] = useState<[number, number]>([
-    0,
-    0,
-  ]);
+
   const [points, setPoints] = useState<Point[]>([]);
 
   useEffect(() => {
@@ -60,27 +56,6 @@ const Points = () => {
         setItems(response.data);
       })
       .catch();
-  }, []);
-
-  useEffect(() => {
-    async function loadPosition() {
-      const { status } = await Location.requestPermissionsAsync();
-
-      if (status !== "granted") {
-        Alert.alert(
-          "ooooops...",
-          "Precisamos de sua permissão para obter a localização"
-        );
-        return;
-      }
-
-      const location = await Location.getCurrentPositionAsync();
-
-      const { latitude, longitude } = location.coords;
-
-      setInitialPosition([latitude, longitude]);
-    }
-    loadPosition();
   }, []);
 
   useEffect(() => {
