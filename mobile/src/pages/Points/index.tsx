@@ -17,14 +17,16 @@ import api from "../../api/api";
 import * as Location from "expo-location";
 import { FontAwesome5 as Icon } from "@expo/vector-icons";
 
+// id Mongo: string, id Sqlite: number
+
 interface Item {
-  id: number;
+  id: string;
   title: string;
   image_url: string;
 }
 
 interface Point {
-  id: number;
+  id: string;
   name: string;
   image: string;
   latitude: number;
@@ -44,7 +46,7 @@ const Points = () => {
   const { city, uf } = routeParams;
 
   const [items, setItems] = useState<Item[]>([]);
-  const [selectedItems, setSelectedItems] = useState<number[]>([]);
+  const [selectedItems, setSelectedItems] = useState<string[]>([]);
   const [initialPosition, setInitialPosition] = useState<[number, number]>([
     0,
     0,
@@ -82,6 +84,7 @@ const Points = () => {
   }, []);
 
   useEffect(() => {
+    if (!selectedItems.length) setPoints([]);
     api
       .get("points", {
         params: {
@@ -93,14 +96,14 @@ const Points = () => {
       .then((response) => {
         setPoints(response.data);
       })
-      .catch(() => {});
+      .catch((error) => {});
   }, [selectedItems]);
 
-  function handleNavigateToDetail(id: number) {
+  function handleNavigateToDetail(id: string) {
     navigation.navigate("Detail", { point_id: id });
   }
 
-  function handleSelectItem(id: number) {
+  function handleSelectItem(id: string) {
     const alreadySelected = selectedItems.findIndex((item) => item === id);
 
     if (alreadySelected !== -1) {
